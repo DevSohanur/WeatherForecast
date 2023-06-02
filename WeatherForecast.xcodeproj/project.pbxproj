@@ -15,6 +15,27 @@
 		FB8697132A279F3600CFBCD0 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8697122A279F3600CFBCD0 /* WeatherPresenter.swift */; };
 		FB8697152A279F4100CFBCD0 /* WeatherEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8697142A279F4100CFBCD0 /* WeatherEntity.swift */; };
 		FB8697172A279F8700CFBCD0 /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8697162A279F8700CFBCD0 /* WeatherRouter.swift */; };
+		FB9B4B192A2A0463008C57F2 /* WeatherHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B132A2A0463008C57F2 /* WeatherHomeViewController.swift */; };
+		FB9B4B1A2A2A0463008C57F2 /* WeatherHomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B142A2A0463008C57F2 /* WeatherHomeProtocol.swift */; };
+		FB9B4B1B2A2A0463008C57F2 /* WeatherHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B152A2A0463008C57F2 /* WeatherHomePresenter.swift */; };
+		FB9B4B1C2A2A0463008C57F2 /* WeatherHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B162A2A0463008C57F2 /* WeatherHomeRouter.swift */; };
+		FB9B4B1D2A2A0463008C57F2 /* WeatherHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B172A2A0463008C57F2 /* WeatherHomeInteractor.swift */; };
+		FB9B4B1E2A2A0463008C57F2 /* WeatherHomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B182A2A0463008C57F2 /* WeatherHomeEntity.swift */; };
+		FB9B4B212A2A1E23008C57F2 /* WeatherHomeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B202A2A1E23008C57F2 /* WeatherHomeCollectionCell.swift */; };
+		FB9B4B262A2A4A86008C57F2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B252A2A4A86008C57F2 /* UIColor.swift */; };
+		FB9B4B292A2A57A6008C57F2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B282A2A57A6008C57F2 /* Utils.swift */; };
+		FB9B4B2B2A2A5AD8008C57F2 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B2A2A2A5AD8008C57F2 /* UIFont.swift */; };
+		FB9B4B2D2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B2C2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift */; };
+		FB9B4B2F2A2A7AE2008C57F2 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B2E2A2A7AE2008C57F2 /* UserDefaults.swift */; };
+		FB9B4B312A2A7B2D008C57F2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B302A2A7B2D008C57F2 /* LocationManager.swift */; };
+		FB9B4B342A2A8FC6008C57F2 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B332A2A8FC6008C57F2 /* SettingsVC.swift */; };
+		FB9B4B362A2A8FE6008C57F2 /* SettingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B352A2A8FE6008C57F2 /* SettingProtocol.swift */; };
+		FB9B4B382A2A8FF0008C57F2 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B372A2A8FF0008C57F2 /* SettingPresenter.swift */; };
+		FB9B4B3A2A2A9008008C57F2 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B392A2A9008008C57F2 /* SettingInteractor.swift */; };
+		FB9B4B3C2A2A9012008C57F2 /* SettingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B3B2A2A9012008C57F2 /* SettingRouter.swift */; };
+		FB9B4B3E2A2A9020008C57F2 /* SettingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B3D2A2A901F008C57F2 /* SettingEntity.swift */; };
+		FB9B4B412A2A9815008C57F2 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */; };
+		FB9B4B432A2A9A07008C57F2 /* LocationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +49,27 @@
 		FB8697122A279F3600CFBCD0 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		FB8697142A279F4100CFBCD0 /* WeatherEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherEntity.swift; sourceTree = "<group>"; };
 		FB8697162A279F8700CFBCD0 /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
+		FB9B4B132A2A0463008C57F2 /* WeatherHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeViewController.swift; sourceTree = "<group>"; };
+		FB9B4B142A2A0463008C57F2 /* WeatherHomeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeProtocol.swift; sourceTree = "<group>"; };
+		FB9B4B152A2A0463008C57F2 /* WeatherHomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomePresenter.swift; sourceTree = "<group>"; };
+		FB9B4B162A2A0463008C57F2 /* WeatherHomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeRouter.swift; sourceTree = "<group>"; };
+		FB9B4B172A2A0463008C57F2 /* WeatherHomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeInteractor.swift; sourceTree = "<group>"; };
+		FB9B4B182A2A0463008C57F2 /* WeatherHomeEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHomeEntity.swift; sourceTree = "<group>"; };
+		FB9B4B202A2A1E23008C57F2 /* WeatherHomeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHomeCollectionCell.swift; sourceTree = "<group>"; };
+		FB9B4B252A2A4A86008C57F2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		FB9B4B282A2A57A6008C57F2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FB9B4B2A2A2A5AD8008C57F2 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		FB9B4B2C2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHomeUpcomingTableCell.swift; sourceTree = "<group>"; };
+		FB9B4B2E2A2A7AE2008C57F2 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		FB9B4B302A2A7B2D008C57F2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		FB9B4B332A2A8FC6008C57F2 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		FB9B4B352A2A8FE6008C57F2 /* SettingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProtocol.swift; sourceTree = "<group>"; };
+		FB9B4B372A2A8FF0008C57F2 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPresenter.swift; sourceTree = "<group>"; };
+		FB9B4B392A2A9008008C57F2 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInteractor.swift; sourceTree = "<group>"; };
+		FB9B4B3B2A2A9012008C57F2 /* SettingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingRouter.swift; sourceTree = "<group>"; };
+		FB9B4B3D2A2A901F008C57F2 /* SettingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEntity.swift; sourceTree = "<group>"; };
+		FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				FB1B25342A26827A005A21E9 /* AppDelegate.swift */,
+				FB9B4B3F2A2A9804008C57F2 /* AddLocation */,
+				FB9B4B322A2A8FA0008C57F2 /* Settings */,
+				FB9B4B272A2A578A008C57F2 /* Utils */,
+				FB9B4B232A2A49BE008C57F2 /* Asset */,
+				FB9B4B222A2A4995008C57F2 /* Extension */,
+				FB9B4B122A2A0463008C57F2 /* WeatherHome */,
 				FB8697072A2792D600CFBCD0 /* WeatherVC */,
-				FB1B253D2A268284005A21E9 /* Assets.xcassets */,
-				FB1B253F2A268284005A21E9 /* LaunchScreen.storyboard */,
+				FB9B4B242A2A49D5008C57F2 /* LaunchScreen  */,
 				FB1B25422A268284005A21E9 /* Info.plist */,
 			);
 			path = WeatherForecast;
@@ -79,6 +126,87 @@
 				FB8697162A279F8700CFBCD0 /* WeatherRouter.swift */,
 			);
 			path = WeatherVC;
+			sourceTree = "<group>";
+		};
+		FB9B4B122A2A0463008C57F2 /* WeatherHome */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B1F2A2A1E11008C57F2 /* View */,
+				FB9B4B132A2A0463008C57F2 /* WeatherHomeViewController.swift */,
+				FB9B4B142A2A0463008C57F2 /* WeatherHomeProtocol.swift */,
+				FB9B4B152A2A0463008C57F2 /* WeatherHomePresenter.swift */,
+				FB9B4B162A2A0463008C57F2 /* WeatherHomeRouter.swift */,
+				FB9B4B172A2A0463008C57F2 /* WeatherHomeInteractor.swift */,
+				FB9B4B182A2A0463008C57F2 /* WeatherHomeEntity.swift */,
+			);
+			name = WeatherHome;
+			path = "../../../../../Movies/Viper Architecture/Weather ArchitectureVIPER/WeatherHome";
+			sourceTree = "<group>";
+		};
+		FB9B4B1F2A2A1E11008C57F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B202A2A1E23008C57F2 /* WeatherHomeCollectionCell.swift */,
+				FB9B4B2C2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB9B4B222A2A4995008C57F2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B252A2A4A86008C57F2 /* UIColor.swift */,
+				FB9B4B2A2A2A5AD8008C57F2 /* UIFont.swift */,
+				FB9B4B2E2A2A7AE2008C57F2 /* UserDefaults.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FB9B4B232A2A49BE008C57F2 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				FB1B253D2A268284005A21E9 /* Assets.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		FB9B4B242A2A49D5008C57F2 /* LaunchScreen  */ = {
+			isa = PBXGroup;
+			children = (
+				FB1B253F2A268284005A21E9 /* LaunchScreen.storyboard */,
+			);
+			path = "LaunchScreen ";
+			sourceTree = "<group>";
+		};
+		FB9B4B272A2A578A008C57F2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B282A2A57A6008C57F2 /* Utils.swift */,
+				FB9B4B302A2A7B2D008C57F2 /* LocationManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FB9B4B322A2A8FA0008C57F2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B332A2A8FC6008C57F2 /* SettingsVC.swift */,
+				FB9B4B352A2A8FE6008C57F2 /* SettingProtocol.swift */,
+				FB9B4B372A2A8FF0008C57F2 /* SettingPresenter.swift */,
+				FB9B4B392A2A9008008C57F2 /* SettingInteractor.swift */,
+				FB9B4B3B2A2A9012008C57F2 /* SettingRouter.swift */,
+				FB9B4B3D2A2A901F008C57F2 /* SettingEntity.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FB9B4B3F2A2A9804008C57F2 /* AddLocation */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */,
+				FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */,
+			);
+			path = AddLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,11 +280,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8697112A279F2900CFBCD0 /* WeatherInteractor.swift in Sources */,
+				FB9B4B412A2A9815008C57F2 /* AddLocationViewController.swift in Sources */,
+				FB9B4B262A2A4A86008C57F2 /* UIColor.swift in Sources */,
+				FB9B4B3E2A2A9020008C57F2 /* SettingEntity.swift in Sources */,
+				FB9B4B1D2A2A0463008C57F2 /* WeatherHomeInteractor.swift in Sources */,
+				FB9B4B342A2A8FC6008C57F2 /* SettingsVC.swift in Sources */,
 				FB86970F2A279EF000CFBCD0 /* WeatherView.swift in Sources */,
+				FB9B4B362A2A8FE6008C57F2 /* SettingProtocol.swift in Sources */,
+				FB9B4B1C2A2A0463008C57F2 /* WeatherHomeRouter.swift in Sources */,
+				FB9B4B292A2A57A6008C57F2 /* Utils.swift in Sources */,
+				FB9B4B192A2A0463008C57F2 /* WeatherHomeViewController.swift in Sources */,
 				FB1B25352A26827A005A21E9 /* AppDelegate.swift in Sources */,
 				FB8697152A279F4100CFBCD0 /* WeatherEntity.swift in Sources */,
+				FB9B4B1B2A2A0463008C57F2 /* WeatherHomePresenter.swift in Sources */,
+				FB9B4B1E2A2A0463008C57F2 /* WeatherHomeEntity.swift in Sources */,
+				FB9B4B212A2A1E23008C57F2 /* WeatherHomeCollectionCell.swift in Sources */,
+				FB9B4B2B2A2A5AD8008C57F2 /* UIFont.swift in Sources */,
+				FB9B4B432A2A9A07008C57F2 /* LocationCollectionCell.swift in Sources */,
 				FB8697132A279F3600CFBCD0 /* WeatherPresenter.swift in Sources */,
+				FB9B4B2F2A2A7AE2008C57F2 /* UserDefaults.swift in Sources */,
+				FB9B4B382A2A8FF0008C57F2 /* SettingPresenter.swift in Sources */,
 				FB8697172A279F8700CFBCD0 /* WeatherRouter.swift in Sources */,
+				FB9B4B3A2A2A9008008C57F2 /* SettingInteractor.swift in Sources */,
+				FB9B4B2D2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift in Sources */,
+				FB9B4B3C2A2A9012008C57F2 /* SettingRouter.swift in Sources */,
+				FB9B4B312A2A7B2D008C57F2 /* LocationManager.swift in Sources */,
+				FB9B4B1A2A2A0463008C57F2 /* WeatherHomeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
