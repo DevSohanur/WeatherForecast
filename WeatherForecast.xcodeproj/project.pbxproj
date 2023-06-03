@@ -36,6 +36,9 @@
 		FB9B4B3E2A2A9020008C57F2 /* SettingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B3D2A2A901F008C57F2 /* SettingEntity.swift */; };
 		FB9B4B412A2A9815008C57F2 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */; };
 		FB9B4B432A2A9A07008C57F2 /* LocationCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */; };
+		FB9B4B452A2AE75D008C57F2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B442A2AE75D008C57F2 /* Constant.swift */; };
+		FB9B4B482A2AECFB008C57F2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B472A2AECFB008C57F2 /* NetworkService.swift */; };
+		FB9B4B4A2A2AEE4D008C57F2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B492A2AEE4D008C57F2 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +73,9 @@
 		FB9B4B3D2A2A901F008C57F2 /* SettingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEntity.swift; sourceTree = "<group>"; };
 		FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCollectionCell.swift; sourceTree = "<group>"; };
+		FB9B4B442A2AE75D008C57F2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		FB9B4B472A2AECFB008C57F2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FB9B4B492A2AEE4D008C57F2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,11 +110,12 @@
 			children = (
 				FB1B25342A26827A005A21E9 /* AppDelegate.swift */,
 				FB9B4B3F2A2A9804008C57F2 /* AddLocation */,
+				FB9B4B122A2A0463008C57F2 /* WeatherHome */,
+				FB9B4B462A2AECEB008C57F2 /* Networking */,
 				FB9B4B322A2A8FA0008C57F2 /* Settings */,
 				FB9B4B272A2A578A008C57F2 /* Utils */,
 				FB9B4B232A2A49BE008C57F2 /* Asset */,
 				FB9B4B222A2A4995008C57F2 /* Extension */,
-				FB9B4B122A2A0463008C57F2 /* WeatherHome */,
 				FB8697072A2792D600CFBCD0 /* WeatherVC */,
 				FB9B4B242A2A49D5008C57F2 /* LaunchScreen  */,
 				FB1B25422A268284005A21E9 /* Info.plist */,
@@ -181,6 +188,7 @@
 		FB9B4B272A2A578A008C57F2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB9B4B442A2AE75D008C57F2 /* Constant.swift */,
 				FB9B4B282A2A57A6008C57F2 /* Utils.swift */,
 				FB9B4B302A2A7B2D008C57F2 /* LocationManager.swift */,
 			);
@@ -207,6 +215,15 @@
 				FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */,
 			);
 			path = AddLocation;
+			sourceTree = "<group>";
+		};
+		FB9B4B462A2AECEB008C57F2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B472A2AECFB008C57F2 /* NetworkService.swift */,
+				FB9B4B492A2AEE4D008C57F2 /* Reachability.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +303,8 @@
 				FB9B4B1D2A2A0463008C57F2 /* WeatherHomeInteractor.swift in Sources */,
 				FB9B4B342A2A8FC6008C57F2 /* SettingsVC.swift in Sources */,
 				FB86970F2A279EF000CFBCD0 /* WeatherView.swift in Sources */,
+				FB9B4B452A2AE75D008C57F2 /* Constant.swift in Sources */,
+				FB9B4B4A2A2AEE4D008C57F2 /* Reachability.swift in Sources */,
 				FB9B4B362A2A8FE6008C57F2 /* SettingProtocol.swift in Sources */,
 				FB9B4B1C2A2A0463008C57F2 /* WeatherHomeRouter.swift in Sources */,
 				FB9B4B292A2A57A6008C57F2 /* Utils.swift in Sources */,
@@ -304,6 +323,7 @@
 				FB9B4B3A2A2A9008008C57F2 /* SettingInteractor.swift in Sources */,
 				FB9B4B2D2A2A5D00008C57F2 /* WeatherHomeUpcomingTableCell.swift in Sources */,
 				FB9B4B3C2A2A9012008C57F2 /* SettingRouter.swift in Sources */,
+				FB9B4B482A2AECFB008C57F2 /* NetworkService.swift in Sources */,
 				FB9B4B312A2A7B2D008C57F2 /* LocationManager.swift in Sources */,
 				FB9B4B1A2A2A0463008C57F2 /* WeatherHomeProtocol.swift in Sources */,
 			);

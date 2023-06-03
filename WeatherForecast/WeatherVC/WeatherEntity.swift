@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct WeatherModel: Codable{
-    var name: String?
-}
+//struct WeatherModel: Codable{
+//    var name: String?
+//}
