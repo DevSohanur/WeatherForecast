@@ -14,6 +14,7 @@ struct LocationModel: Codable {
 }
 
 struct WeatherHomeViewModel: Codable {
+    var backgroundColor: String?
     var locationName: String?
     var image: String?
     var temparature: String?
@@ -23,7 +24,8 @@ struct WeatherHomeViewModel: Codable {
 
 struct UpcomingWeatherHomeViewModel: Codable {
     var dayName: String?
-    var temparature: String?
+    var minTemparature: String?
+    var maxTemparature: String?
     var icon:String?
 }
 

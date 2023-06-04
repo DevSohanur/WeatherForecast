@@ -123,6 +123,7 @@ class SettingsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.navigationBar.tintColor = UIColor.navigationBarColor
         self.navigationItem.title = "Settings"
     }
     
@@ -184,14 +185,19 @@ extension SettingsVC: PresenterToViewSettingProtocol {
             self.view.layoutIfNeeded()
             
             let defaultValue = UserDefaults.getStringData(key: UserDefaults.ConstantDefaultLocation)
-            var index = 0
-            for i in 0...data.count-1 {
-                if data[i] == defaultValue{
-                    index = i
-                }
-            }
             
-            setDefaultLocation(row: index)
+            if defaultValue.count != 0{
+                var index = 0
+                for i in 0...data.count-1 {
+                    if data[i] == defaultValue{
+                        index = i
+                    }
+                }
+                setDefaultLocation(row: index)
+            }
+            else{
+                defaultLocationLabel.isHidden = true
+            }
         }
     }
     

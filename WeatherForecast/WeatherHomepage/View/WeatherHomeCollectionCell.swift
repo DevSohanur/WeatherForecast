@@ -13,6 +13,10 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
     
     var weatherHomePresenter: WeatherHomePresenter!
     
+    var scroll = UIScrollView(frame: .zero)
+    var scrollView = UIView()
+    let refreshControl = UIRefreshControl()
+
     lazy var currentTemparatureLocationLabel = UILabel()
     lazy var weatherIconImageView = UIImageView()
     lazy var currentTemparatureLabel = UILabel()
@@ -55,14 +59,23 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
         currentTemparatureTypeLabel.text = data.temparatureType
 
         upcomingWeatherHomeViewModel = data.upcomingWeather ?? upcomingWeatherHomeViewModel
+        upcomingWeatherCollectionView.reloadData()
     }
     
     func configureViews() {
-        currentTemparatureLocationLabel.text = "Dhaka, Bangladesh"
+        refreshControl.tintColor = .white
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        scroll.contentInset = .zero
+        scroll.refreshControl = refreshControl
+        scroll.showsHorizontalScrollIndicator = false
+        scroll.showsVerticalScrollIndicator = false
+
+        currentTemparatureLocationLabel.text = ".."
         currentTemparatureLocationLabel.numberOfLines = 0
         currentTemparatureLocationLabel.textColor = .white
         currentTemparatureLocationLabel.textAlignment = .center
-        currentTemparatureLocationLabel.font = UIFont.robotoSemiBoldFont(ofSize: 18)
+        currentTemparatureLocationLabel.font = UIFont.robotoSemiBoldFont(ofSize: 22)
         
         weatherIconImageView.image = UIImage(named: "icon_default")
         weatherIconImageView.contentMode = .scaleAspectFit
@@ -79,6 +92,7 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
         
         upcomingWeatherCollectionView.dataSource = self
         upcomingWeatherCollectionView.delegate = self
+        upcomingWeatherCollectionView.isScrollEnabled = false
         upcomingWeatherCollectionView.register(WeatherHomeUpcomingCollectionCell.self, forCellWithReuseIdentifier: WeatherHomeUpcomingCollectionCell.identifire)
         
         moreButton.setTitle("More >", for: .normal)
@@ -86,23 +100,37 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
         moreButton.setTitleColor(UIColor.white, for: .normal)
     }
     
+    @objc func refresh(_ sender: UIRefreshControl) {
+        weatherHomePresenter.refreshData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            self.refreshControl.endRefreshing()
+        })
+    }
+    
     func addSubviews() {
-        contentView.addSubview(currentTemparatureLocationLabel)
+        
+        contentView.addSubview(scroll)
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        
+        scroll.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.addSubview(currentTemparatureLocationLabel)
         currentTemparatureLocationLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.addSubview(weatherIconImageView)
+        scrollView.addSubview(weatherIconImageView)
         weatherIconImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(currentTemparatureLabel)
+
+        scrollView.addSubview(currentTemparatureLabel)
         currentTemparatureLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(currentTemparatureTypeLabel)
+
+        scrollView.addSubview(currentTemparatureTypeLabel)
         currentTemparatureTypeLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(upcomingWeatherCollectionView)
+
+        scrollView.addSubview(upcomingWeatherCollectionView)
         upcomingWeatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        contentView.addSubview(moreButton)
+
+        scrollView.addSubview(moreButton)
         moreButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -110,37 +138,50 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
     func activateConstraint() {
         NSLayoutConstraint.activate([
             
+            scroll.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            scroll.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            scroll.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            scroll.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            scrollView.leadingAnchor.constraint(equalTo: scroll.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: scroll.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: scroll.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: scroll.bottomAnchor),
+            scrollView.widthAnchor.constraint(equalTo: scroll.widthAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 30),
+            
             // currentTemparatureLocationLabel
-            currentTemparatureLocationLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Utils.getSafeAreaHeight(includingNavigationBar: false)),
-            currentTemparatureLocationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 50),
-            currentTemparatureLocationLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+            currentTemparatureLocationLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: Utils.getSafeAreaHeight(includingNavigationBar: false)),
+            currentTemparatureLocationLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 50),
+            currentTemparatureLocationLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -50),
             currentTemparatureLocationLabel.heightAnchor.constraint(equalToConstant: 30),
             
             // weatherIconImageView
-            weatherIconImageView.topAnchor.constraint(equalTo: currentTemparatureLocationLabel.bottomAnchor),
-            weatherIconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            weatherIconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            weatherIconImageView.bottomAnchor.constraint(equalTo: currentTemparatureLabel.topAnchor),
+            weatherIconImageView.topAnchor.constraint(equalTo: currentTemparatureLocationLabel.bottomAnchor, constant: 20),
+            weatherIconImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            weatherIconImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            weatherIconImageView.heightAnchor.constraint(equalToConstant: (UIScreen.main.bounds.width / 1.5) - 40),
             
             // currentTemparatureLabel
             currentTemparatureLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            currentTemparatureLabel.bottomAnchor.constraint(equalTo: upcomingWeatherCollectionView.topAnchor),
+            currentTemparatureLabel.topAnchor.constraint(equalTo: weatherIconImageView.bottomAnchor, constant: 10),
             currentTemparatureLabel.heightAnchor.constraint(equalToConstant: 90),
-            
+
             // currentTemparatureTypeLabel
-            currentTemparatureTypeLabel.leadingAnchor.constraint(equalTo: currentTemparatureLabel.trailingAnchor, constant: -5),
-            currentTemparatureTypeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            currentTemparatureTypeLabel.leadingAnchor.constraint(equalTo: currentTemparatureLabel.trailingAnchor),
+            currentTemparatureTypeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
             currentTemparatureTypeLabel.bottomAnchor.constraint(equalTo: currentTemparatureLabel.bottomAnchor, constant: -12),
-            
+
             // upcomingWeatherTableView
-            upcomingWeatherCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            upcomingWeatherCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            upcomingWeatherCollectionView.bottomAnchor.constraint(equalTo: moreButton.topAnchor),
-            upcomingWeatherCollectionView.heightAnchor.constraint(equalToConstant: 150),
-            
+            upcomingWeatherCollectionView.topAnchor.constraint(equalTo: currentTemparatureLabel.bottomAnchor, constant: 20),
+            upcomingWeatherCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20),
+            upcomingWeatherCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            upcomingWeatherCollectionView.heightAnchor.constraint(equalToConstant: 300),
+
             // moreButton
-            moreButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            moreButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30),
+            moreButton.topAnchor.constraint(equalTo: upcomingWeatherCollectionView.bottomAnchor, constant: 20),
+            moreButton.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -20),
+            moreButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30),
             moreButton.heightAnchor.constraint(equalToConstant: 24)
         ])
     }
@@ -159,11 +200,11 @@ extension WeatherHomeCollectionCell: UICollectionViewDataSource, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: upcomingWeatherCollectionView.bounds.width, height: upcomingWeatherCollectionView.bounds.height / 3)
+        return CGSize(width: upcomingWeatherCollectionView.bounds.width, height: 50)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.weatherHomePresenter.settingsButtonAction()
+//        self.weatherHomePresenter.settingsButtonAction()
         
     }
     

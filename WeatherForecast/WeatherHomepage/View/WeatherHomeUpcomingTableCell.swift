@@ -30,7 +30,7 @@ class WeatherHomeUpcomingCollectionCell: UICollectionViewCell {
     func bindData(data: UpcomingWeatherHomeViewModel) {
         weatherIconImageView.image = UIImage(named: data.icon ?? "icon_default")
         weatherDateNameLabel.text = data.dayName ?? ""
-        weatherTemparatureRangeLabel.text = data.temparature ?? ""
+        weatherTemparatureRangeLabel.text = "\(data.minTemparature ?? "") / \(data.maxTemparature ?? "")"
     }
         
     func configureViews() {
@@ -68,19 +68,16 @@ class WeatherHomeUpcomingCollectionCell: UICollectionViewCell {
             weatherIconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             weatherIconImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             weatherIconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            weatherIconImageView.widthAnchor.constraint(equalToConstant: 40),
-            weatherIconImageView.widthAnchor.constraint(equalToConstant: 40),
+            weatherIconImageView.widthAnchor.constraint(equalToConstant: 24),
+            weatherIconImageView.widthAnchor.constraint(equalToConstant: 24),
             
             // weatherDateNameLabel
             weatherDateNameLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.centerYAnchor),
             weatherDateNameLabel.leadingAnchor.constraint(equalTo: weatherIconImageView.trailingAnchor, constant: 5),
-            weatherDateNameLabel.trailingAnchor.constraint(equalTo: weatherTemparatureRangeLabel.leadingAnchor, constant: -20),
             
             // weatherTemparatureRangeLabel
-            weatherTemparatureRangeLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            weatherTemparatureRangeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            weatherTemparatureRangeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            weatherTemparatureRangeLabel.widthAnchor.constraint(equalToConstant: 73),
+            weatherTemparatureRangeLabel.centerYAnchor.constraint(equalTo: weatherIconImageView.centerYAnchor),
+            weatherTemparatureRangeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 }

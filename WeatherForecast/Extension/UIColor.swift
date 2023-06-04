@@ -25,6 +25,10 @@ extension UIColor {
         return UIColor(red: (22 / 255), green: (22/255), blue: (22/255), alpha: 1.0)
     }
     
+    static var navigationBarColor: UIColor {
+        return UIColor(red: (0 / 255), green: (122/255), blue: (255/255), alpha: 1.0)
+    }
+    
     static var viewBackgroundColor: UIColor {
         return UIColor(red: (242 / 255), green: (242/255), blue: (247/255), alpha: 1.0)
     }
