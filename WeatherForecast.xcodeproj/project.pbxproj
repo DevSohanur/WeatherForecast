@@ -162,13 +162,13 @@
 		FB1E15AA2A2C23BA00177BB5 /* WeatherHomepage */ = {
 			isa = PBXGroup;
 			children = (
-				FB1E15AB2A2C23D100177BB5 /* View */,
+				FB1E15B12A2C23D200177BB5 /* WeatherHomeProtocol.swift */,
+				FB1E15B02A2C23D200177BB5 /* WeatherHomeViewController.swift */,
 				FB1E15B32A2C23D200177BB5 /* WeatherHomeEntity.swift */,
 				FB1E15AE2A2C23D200177BB5 /* WeatherHomeInteractor.swift */,
 				FB1E15AF2A2C23D200177BB5 /* WeatherHomePresenter.swift */,
-				FB1E15B12A2C23D200177BB5 /* WeatherHomeProtocol.swift */,
 				FB1E15B22A2C23D200177BB5 /* WeatherHomeRouter.swift */,
-				FB1E15B02A2C23D200177BB5 /* WeatherHomeViewController.swift */,
+				FB1E15AB2A2C23D100177BB5 /* View */,
 			);
 			path = WeatherHomepage;
 			sourceTree = "<group>";

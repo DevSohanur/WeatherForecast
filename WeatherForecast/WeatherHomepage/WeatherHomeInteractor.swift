@@ -22,26 +22,25 @@ class WeatherHomeInteractor: PresenterToInteractorWeatherHomeProtocol{
         presenter?.fetchLocationSuccess(data: location)
     }
     
-    
-//    var weather: [WeatherModel]?
-//    
-//    
-//    func fetchWeatherInformation(latitude: Double, longitude: Double) {
-//        let parameter: [String: String] = [Constant.APP_ID_KEY : Constant.OPEN_WEATHER_API_KEY,
-//                                        Constant.LAT_KEY : "37.7858",
-//                                        Constant.LON_KEY : "-122.4064"]
-//        
-//        NetworkService.RestApiRequest(urlString: Constant.OPEN_WEATHER_API_URL,
-//                                  queryParameters: parameter){ (result: Result<WeatherHomeModel, Error>) in
-//            switch result {
-//            case .success(let response):
-//                print("Success : \(response)")
-//                self.presenter?.fetchWeatherInformationSuccess(data: response)
-//                
-//            case .failure(let error):
-//                print("Failed \(error)")
-//                self.presenter?.fetchWeatherInformationFailure(error: "Failed To Get Weather Information")
-//            }
-//        }
-//    }
+    func fetchWeatherByLocation(lat: Double, long: Double) {
+        let parameter: [String: String] = [Constant.APP_ID_KEY : Constant.OPEN_WEATHER_API_KEY,
+                                        Constant.LAT_KEY : String(describing: lat),
+                                        Constant.LON_KEY : String(describing: long)]
+        
+        NetworkService.RestApiRequest(urlString: Constant.OPEN_WEATHER_API_URL,
+                                  queryParameters: parameter){ (result: Result<WeatherHomeModel, Error>) in
+            switch result {
+            case .success(let response):
+                print("Success For Lat :\(lat) Long : \(long) : \(response)")
+                self.presenter?.fetchWeatherByLocationSuccess(data: response)
+                
+            case .failure(let error):
+                print("Failed \(error)")
+                
+                var err = "\(error)"
+                
+                self.presenter?.fetchWeatherByLocationFailure(error: err)
+            }
+        }
+    }
 }

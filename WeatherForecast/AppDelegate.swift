@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         
+//        UserDefaults.storeLocationData(data: LocationModel(name: "Dhaka", latitude: 23.7508595, longitude: 90.4030951))
+//        UserDefaults.storeLocationData(data: LocationModel(name: "Rajshahi", latitude: 24.3801485, longitude: 88.5648161))
         
         //Setting Root View Controller Using Router
         let weatherRouter = WeatherHomeRouter.createModule()

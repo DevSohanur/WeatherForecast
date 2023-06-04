@@ -48,9 +48,35 @@ class WeatherHomePresenter: ViewToPresenterWeatherHomeProtocol {
 
 extension WeatherHomePresenter: InteractorToPresenterWeatherHomeProtocol {
     
+    func fetchWeatherByLocationSuccess(data: WeatherHomeModel) {
+        print(#function)
+        weatherHomeViewModel.append(WeatherHomeViewModel(locationName: "Rajshahi",
+                                                         image: "icon_sunny",
+                                                         temparature: "37",
+                                                         temparatureType: "Rainy",
+                                                         upcomingWeather: [UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny"),
+                                                                           UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny"),
+                                                                           UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny")]))
+        
+        view?.onFetchLocationSuccess()
+    }
+    
+    func fetchWeatherByLocationFailure(error: String) {
+        print(#function)
+    }
+    
     func fetchLocationSuccess(data: [LocationModel]) {
         DispatchQueue.main.async { [self] in
             locationModel = data
+            
+            print("fetchLocationSuccess : \(UserDefaults.getCurrentLocation())")
+            
+            for item in locationModel {
+                DispatchQueue.main.async {
+                    interactor?.fetchWeatherByLocation(lat: item.latitude ?? 0.0, long: item.longitude ?? 0.0)
+                }
+            }
+            
             view?.onFetchLocationSuccess()
             view?.hideActivity()
         }

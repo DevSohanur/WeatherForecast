@@ -153,6 +153,7 @@ extension WeatherHomeCollectionCell: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherHomeUpcomingCollectionCell.identifire, for: indexPath) as! WeatherHomeUpcomingCollectionCell
+        cell.bindData(data: upcomingWeatherHomeViewModel[indexPath.row])
         return cell
     }
     

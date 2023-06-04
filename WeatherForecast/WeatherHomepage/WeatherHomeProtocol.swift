@@ -37,12 +37,17 @@ protocol PresenterToViewWeatherHomeProtocol {
 protocol PresenterToInteractorWeatherHomeProtocol {
     var presenter: InteractorToPresenterWeatherHomeProtocol? {get set}
     func fetchLocation()
+    
+    func fetchWeatherByLocation(lat: Double, long: Double)
 }
 
 // MARK: - Interactor To Presenter
 protocol InteractorToPresenterWeatherHomeProtocol {
     func fetchLocationSuccess(data: [LocationModel])
     func fetchLocationFailure(error: String)
+    
+    func fetchWeatherByLocationSuccess(data: WeatherHomeModel )
+    func fetchWeatherByLocationFailure(error: String)
 }
 
 // MARK: - Presenter To Router

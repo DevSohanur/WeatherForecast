@@ -8,9 +8,9 @@
 import UIKit
 
 struct LocationModel: Codable {
-    var name: String!
-    var latitude: Double!
-    var longitude: Double!
+    var name: String?
+    var latitude: Double?
+    var longitude: Double?
 }
 
 struct WeatherHomeViewModel: Codable {
@@ -24,7 +24,7 @@ struct WeatherHomeViewModel: Codable {
 struct UpcomingWeatherHomeViewModel: Codable {
     var dayName: String?
     var temparature: String?
-    var temparatureType:String?
+    var icon:String?
 }
 
 

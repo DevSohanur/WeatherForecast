@@ -26,6 +26,12 @@ class WeatherHomeUpcomingCollectionCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func bindData(data: UpcomingWeatherHomeViewModel) {
+        weatherIconImageView.image = UIImage(named: data.icon ?? "icon_default")
+        weatherDateNameLabel.text = data.dayName ?? ""
+        weatherTemparatureRangeLabel.text = data.temparature ?? ""
+    }
         
     func configureViews() {
         
