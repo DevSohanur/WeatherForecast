@@ -1,53 +1,59 @@
-////
-////  SettingProtocol.swift
-////  WeatherForecast
-////
-////  Created by Sohanur Rahman on 3/6/23.
-////
 //
-//import Foundation
+//  SettingProtocol.swift
+//  WeatherForecast
 //
-//// MARK: - View To Presenter
-//protocol ViewToPresenterWeatherHomeProtocol {
-//    var view: PresenterToViewWeatherHomeProtocol? {get set}
-//    var interactor: PresenterToInteractorWeatherHomeProtocol? {get set}
-//    var router: PresenterToRouterWeatherHomeProtocol? {get set}
+//  Created by Sohanur Rahman on 3/6/23.
 //
-//    func viewDidLoad()
-//    func refresh()
-//
-//    func numberOfRowsInSection() -> Int
-//    func cellForRowAt(tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-//    func didSelectRowAt(index: Int)
-//}
-//
-//// MARK: - Presenter To View
-//protocol PresenterToViewWeatherHomeProtocol {
-//    func onFetchWeatherInformationSuccess()
-//    func onFetchWeatherInformationFailed(error: String)
-//
-//    func showActivity()
-//    func hideActivity()
-//}
-//
-//// MARK: - Presenter To Interactor
-//protocol PresenterToInteractorWeatherHomeProtocol {
-//    var presenter: InteractorToPresenterWeatherHomeProtocol? {get set}
-//    var weather: [WeatherModel]? {get set}
-//    func fetchWeatherInformation()
-//}
-//
-//// MARK: - Interactor To Presenter
-//protocol InteractorToPresenterWeatherHomeProtocol {
-//    func fetchWeatherInformationSuccess(data: [WeatherResponseModel])
-//    func fetchWeatherInformationFailure(error: String)
-//}
-//
-//// MARK: - Presenter To Router
-//
-//protocol PresenterToRouterWeatherHomeProtocol {
-//
-////    var entry: WeatherHomeEntryPoint? { get }
-//
-//    static func createModule() -> UINavigationController?
-//}
+
+import UIKit
+
+// MARK: - View To Presenter
+protocol ViewToPresenterSettingProtocol {
+    var view: PresenterToViewSettingProtocol? {get set}
+    var interactor: PresenterToInteractorSettingProtocol? {get set}
+    var router: PresenterToRouterSettingProtocol? {get set}
+
+    func viewDidLoad()
+    
+    func temparatureNumberOfItemsInSection() -> Int
+    func temparatureCellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    func temparatureDidSelectItemAt(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    
+    func locationNumberOfItemsInSection() -> Int
+    func locationCellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    func locationDidSelectItemAt(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    
+    func sizeForItemAt(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
+}
+
+// MARK: - Presenter To View
+protocol PresenterToViewSettingProtocol {
+    func onFetchLocationSuccess(data: [String])
+    func onFetchTemparatureUnitSuccess(data: [String])
+    
+    func showActivity()
+    func hideActivity()
+}
+
+// MARK: - Presenter To Interactor
+protocol PresenterToInteractorSettingProtocol {
+    var presenter: InteractorToPresenterSettingProtocol? {get set}
+    var location: [String]? {get set}
+    var temparatureUnit: [String]? {get set}
+    func fetchLocation()
+    func fetchTemparatureUnit()
+    
+    func updateLocation(data: String)
+    func updateTemparatureUnit(data: String)
+}
+
+// MARK: - Interactor To Presenter
+protocol InteractorToPresenterSettingProtocol {
+    func fetchTemparatureUnitSuccess(data: [String])
+    func fetchLocationSuccess(data: [String])
+}
+
+// MARK: - Presenter To Router
+protocol PresenterToRouterSettingProtocol {
+    static func createModule() -> UIViewController?
+}

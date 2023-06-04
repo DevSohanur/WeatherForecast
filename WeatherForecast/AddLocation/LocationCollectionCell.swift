@@ -30,7 +30,7 @@ class LocationCollectionCell: UICollectionViewCell {
         locationNameLabel.text = "Today"
         locationNameLabel.textColor = .black
         locationNameLabel.textAlignment = .left
-        locationNameLabel.font = UIFont.helveticaRegularFont(ofSize: 14)
+        locationNameLabel.font = UIFont.poppinsRegularFont(ofSize: 14)
         
         separatorView.backgroundColor = .lightGray
     }

@@ -43,14 +43,7 @@ extension LocationManager: CLLocationManagerDelegate {
     }
 }
 
-struct LocationModel: Codable {
-    var id: Int?
-    var name: String?
-    var latitude: Double?
-    var longitude: Double?
-    var isDefault: Bool?
-    var source: EnumLocationSource?
-}
+
 
 enum EnumLocationSource: String, Codable {
     case LOCATION

@@ -22,12 +22,11 @@ enum ApiError: String, Error {
     case No_Data_Found
 }
 
-
 class NetworkService {
     
     static func RestApiRequest<T: Codable>(urlString: String, method: EnumRequestMethod = .GET , headers: [String: String]? = nil, parameters: [String: Any]? = nil, queryParameters: [String: String]? = nil, completion: @escaping (Result<T, Error>) -> Void) {
         
-        if Reachability.isConnectedToNetwork() {
+        if !Reachability.isConnectedToNetwork() {
             completion(.failure(ApiError.No_Network_Connection))
         }
         else{
@@ -46,7 +45,9 @@ class NetworkService {
                 completion(.failure(ApiError.Invalid_URL_Provided))
                 return
             }
-                        
+            
+            print("Requested Rest Api: \(url)")
+            
             var request = URLRequest(url: url)
             request.httpMethod = method.rawValue
             

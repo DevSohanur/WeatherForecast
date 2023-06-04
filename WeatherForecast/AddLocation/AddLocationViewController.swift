@@ -43,7 +43,7 @@ class AddLocationViewController: UIViewController {
         textField.placeholder = "Search your location here"
         textField.borderStyle = .roundedRect
         textField.textColor = .black
-        textField.font = UIFont.helveticaRegularFont(ofSize: 14)
+        textField.font = UIFont.poppinsRegularFont(ofSize: 14)
         
         
         locationCollectionView.dataSource = self

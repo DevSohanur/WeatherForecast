@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager?.delegate = self
         locationManager?.requestWhenInUseAuthorization()
         
-        // Setting Root View Controller Using Router
+        
+        //Setting Root View Controller Using Router
         let weatherRouter = WeatherHomeRouter.createModule()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = weatherRouter
         window?.makeKeyAndVisible()
-        
         return true
     }
 }
@@ -64,53 +64,12 @@ extension AppDelegate: CLLocationManagerDelegate {
             
             // Access the location information
             if let city = placemark.locality, let state = placemark.administrativeArea {
-                
-                var currentLocationData = UserDefaults.getLocationData()
-                
-                var hasDefaultAddress = false
-                var locationPosition = -1
-                
-                if currentLocationData.count != 0{
-                    for index in 0...currentLocationData.count - 1 {
-                        if currentLocationData[index].source == EnumLocationSource.LOCATION {
-                            locationPosition = index
-                        }
-                        if currentLocationData[index].isDefault == true{
-                            hasDefaultAddress = true
-                        }
-                    }
-                    
-                    if locationPosition != -1{
-                        currentLocationData.remove(at: locationPosition)
-                    }
-                    currentLocationData.insert(LocationModel(id: currentLocationData.count + 1,
-                                                             name: (city + ", " + state),
-                                                             latitude: location.coordinate.latitude,
-                                                             longitude: location.coordinate.longitude,
-                                                             isDefault: !hasDefaultAddress,
-                                                             source: .LOCATION),
-                                               at: locationPosition)
-                    
-                    UserDefaults.storeLocationData(data: currentLocationData)
-                    
-                    print(UserDefaults.getLocationData())
-                }
-                else{
-                    currentLocationData.append(LocationModel(id: currentLocationData.count + 1,
-                                                             name: (city + ", " + state),
-                                                             latitude: location.coordinate.latitude,
-                                                             longitude: location.coordinate.longitude,
-                                                             isDefault: true,
-                                                             source: .LOCATION))
-                    
-                    UserDefaults.storeLocationData(data: currentLocationData)
-                    
-                    print(UserDefaults.getLocationData())
-                }
+                UserDefaults.storeCurrentLocation(data: LocationModel(name: (city + ", " + state),
+                                                                      latitude: location.coordinate.latitude,
+                                                                      longitude: location.coordinate.longitude))
             } else {
                 print("Update Locations Unable to retrieve location information.")
             }
         }
     }
 }
-

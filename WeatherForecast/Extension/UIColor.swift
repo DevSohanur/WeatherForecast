@@ -20,4 +20,13 @@ extension UIColor {
     static var cloudyBackground: UIColor {
         return UIColor(red: (255 / 255), green: (180/255), blue: (47/255), alpha: 1.0)
     }
+    
+    static var titleColor: UIColor {
+        return UIColor(red: (22 / 255), green: (22/255), blue: (22/255), alpha: 1.0)
+    }
+    
+    static var viewBackgroundColor: UIColor {
+        return UIColor(red: (242 / 255), green: (242/255), blue: (247/255), alpha: 1.0)
+    }
+
 }
