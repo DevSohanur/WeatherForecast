@@ -37,6 +37,7 @@ class WeatherHomePresenter: ViewToPresenterWeatherHomeProtocol {
     
     func setCellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherHomeCollectionCell.identifire, for: indexPath) as? WeatherHomeCollectionCell
+        cell?.weatherHomePresenter = self
         cell?.bindData(data: weatherHomeViewModel[indexPath.row])
         return cell ?? UICollectionViewCell()
     }
@@ -50,13 +51,24 @@ extension WeatherHomePresenter: InteractorToPresenterWeatherHomeProtocol {
     
     func fetchWeatherByLocationSuccess(data: WeatherHomeModel) {
         print(#function)
-        weatherHomeViewModel.append(WeatherHomeViewModel(locationName: "Rajshahi",
-                                                         image: "icon_sunny",
-                                                         temparature: "37",
-                                                         temparatureType: "Rainy",
-                                                         upcomingWeather: [UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny"),
-                                                                           UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny"),
-                                                                           UpcomingWeatherHomeViewModel(dayName: "Today", temparature: "23/32", icon: "icon_sunny")]))
+        
+        
+        var locationName = (data.city?.name ?? "") + ", " + (data.city?.country ?? "")
+        var image = "icon_sunny"
+        var temparature = ""
+        var temparatureType = ""
+        var upcomingWeatherHomeViewModel = [UpcomingWeatherHomeViewModel(dayName: "Today",
+                                                                         temparature: "27/35",
+                                                                         icon: "")]        
+        
+        
+        
+        
+        weatherHomeViewModel.append(WeatherHomeViewModel(locationName: locationName,
+                                                         image: image,
+                                                         temparature: temparature,
+                                                         temparatureType: temparatureType,
+                                                         upcomingWeather: upcomingWeatherHomeViewModel))
         
         view?.onFetchLocationSuccess()
     }

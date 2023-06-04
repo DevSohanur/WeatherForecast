@@ -11,6 +11,8 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
     
     static let identifire = "WeatherHomeCollectionCell"
     
+    var weatherHomePresenter: WeatherHomePresenter!
+    
     lazy var currentTemparatureLocationLabel = UILabel()
     lazy var weatherIconImageView = UIImageView()
     lazy var currentTemparatureLabel = UILabel()
@@ -77,7 +79,6 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
         
         upcomingWeatherCollectionView.dataSource = self
         upcomingWeatherCollectionView.delegate = self
-        upcomingWeatherCollectionView.isUserInteractionEnabled = false
         upcomingWeatherCollectionView.register(WeatherHomeUpcomingCollectionCell.self, forCellWithReuseIdentifier: WeatherHomeUpcomingCollectionCell.identifire)
         
         moreButton.setTitle("More >", for: .normal)
@@ -159,6 +160,11 @@ extension WeatherHomeCollectionCell: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: upcomingWeatherCollectionView.bounds.width, height: upcomingWeatherCollectionView.bounds.height / 3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.weatherHomePresenter.settingsButtonAction()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
