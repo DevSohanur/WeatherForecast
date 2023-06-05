@@ -105,6 +105,8 @@ class AddLocationViewController: UIViewController, MKLocalSearchCompleterDelegat
         searchTextField.leftViewMode = .always
         searchTextField.rightViewMode = .always
         
+        searchTextField.becomeFirstResponder()
+        
         
         locationCollectionView.layer.cornerRadius = 10
         locationCollectionView.layer.masksToBounds = true
@@ -171,21 +173,31 @@ extension AddLocationViewController: UICollectionViewDataSource, UICollectionVie
         let search = MKLocalSearch(request: MKLocalSearch.Request(completion: searchResults[indexPath.row] ) )
         search.start { (response, error) in
             if let coordinate = response?.mapItems.first?.placemark.coordinate {
-                
                 let latitude = coordinate.latitude
                 let longitude = coordinate.longitude
                 let title = self.searchResults[indexPath.row].title
                 
-                if UserDefaults.storeLocationData(data: LocationModel(name: title, latitude: latitude, longitude: longitude)) {
-//                    self.view.showLoadingView()
-                    self.navigationController?.popViewController(animated: true)
-                }
-                else{
-                    self.showAlert(title: "Failed", message: "Same location already exist user preference.")
-                }
+                self.askToAddAddress(data: LocationModel(name: title, latitude: latitude, longitude: longitude))
                 print("Add Location Using : \(title) \(latitude) \(longitude)")
             }
         }
+    }
+    
+    func askToAddAddress(data : LocationModel) {
+        let alert = UIAlertController(title: "Are you sure?", message: "You are going to add a new address", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive))
+
+        alert.addAction(UIAlertAction(title: "Continue", style: .default) { (action) in
+            if UserDefaults.storeLocationData(data: data) {
+                self.navigationController?.popViewController(animated: true)
+            }
+            else{
+                self.showAlert(title: "Failed", message: "Same location already exist user preference.")
+            }
+        })
+        
+        self.present(alert, animated: true)
     }
 }
 

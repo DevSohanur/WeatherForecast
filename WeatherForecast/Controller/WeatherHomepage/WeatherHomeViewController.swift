@@ -47,7 +47,6 @@ class WeatherHomeViewController: UIViewController {
     }
     
     @objc func locationButtonAction() {
-//        self.navigationController?.pushViewController(AddLocationViewController(), animated: true)
         presenter?.locationButtonAction()
     }
     
@@ -72,6 +71,7 @@ class WeatherHomeViewController: UIViewController {
         refreshButton.titleLabel?.font = UIFont.robotoSemiBoldFont(ofSize: 14)
         refreshButton.setTitleColor(UIColor.white, for: .normal)
         refreshButton.backgroundColor = .black
+        refreshButton.layer.cornerRadius = 5
         refreshButton.addTarget(self, action: #selector(refreshButtonAction), for: .touchUpInside)
 
         chooseLocationButton.setImage(UIImage(named: "icon_map"), for: .normal)
@@ -85,7 +85,6 @@ class WeatherHomeViewController: UIViewController {
         weatherCollectionView.isPagingEnabled = true
         weatherCollectionView.contentInsetAdjustmentBehavior = .never
         weatherCollectionView.register(WeatherHomeCollectionCell.self, forCellWithReuseIdentifier: WeatherHomeCollectionCell.identifire)
-        
         
         view.addSubview(errorLabel)
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -169,9 +168,9 @@ extension WeatherHomeViewController: PresenterToViewWeatherHomeProtocol {
     
     func hideActivity() {
         print(#function)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.async {
             self.view.hideLoadingView()
-        })
+        }
     }
 }
 
@@ -204,7 +203,6 @@ extension WeatherHomeViewController: CLLocationManagerDelegate {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse, .authorizedAlways:
             print("Location Coordinate .authorizedWhenInUse, .authorizedAlways")
-            // Permission granted, start location updates
             locationManager.startUpdatingLocation()
             break
             
@@ -228,15 +226,16 @@ extension WeatherHomeViewController: CLLocationManagerDelegate {
         switch status {
         case .authorizedWhenInUse, .authorizedAlways:
             print("Location Coordinate .authorizedWhenInUse, .authorizedAlways")
-            // Permission granted, start location updates
             locationManager.startUpdatingLocation()
+            
         case .denied, .restricted:
             print("Location Coordinate .denied, .restricted")
-            // Permission denied, handle accordingly (e.g., show an alert)
             break
+            
         case .notDetermined:
             print("Location Coordinate .notDetermined")
             break
+            
         @unknown default:
             print("Location Coordinate default")
             break
@@ -252,8 +251,6 @@ extension WeatherHomeViewController: CLLocationManagerDelegate {
             print("Location Coordinate Latitude : \(latitude) longitude : \(longitude)")
             
             let data = UserDefaults.getCurrentLocation()
-            
-            
             
             if (String(format: "%.2f", (data.latitude ?? 0.0)) != String(format: "%.2f", (latitude)) ) &&
                 (String(format: "%.2f", (data.longitude ?? 0.0)) != String(format: "%.2f", (longitude)) ) {
@@ -279,17 +276,9 @@ extension WeatherHomeViewController: CLLocationManagerDelegate {
                                        preferredStyle: .alert )
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { _ in
-            self.openAppSettings()
+            self.presenter?.openSettings()
         }))
         self.present(alert, animated: true, completion: nil)
-    }
-    func openAppSettings() {
-        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
-        if UIApplication.shared.canOpenURL(settingsURL) {
-            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
-        }
     }
 }
 

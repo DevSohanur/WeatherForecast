@@ -118,6 +118,7 @@ class SettingsVC: UIViewController {
             defaultLocationCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             defaultLocationCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             defaultLocationCollectionView.bottomAnchor.constraint(equalTo: defaultLocationCollectionView.bottomAnchor, constant: 50),
+            defaultLocationCollectionView.heightAnchor.constraint(equalToConstant: 5000),
             
         ])
     }

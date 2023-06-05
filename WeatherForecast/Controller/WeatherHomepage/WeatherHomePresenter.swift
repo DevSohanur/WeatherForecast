@@ -33,8 +33,6 @@ class WeatherHomePresenter: ViewToPresenterWeatherHomeProtocol {
     }
     
     func locationButtonAction() {
-//        print(#function)
-        
         router?.pushToAddLocation(on: view)
     }
     
@@ -42,6 +40,10 @@ class WeatherHomePresenter: ViewToPresenterWeatherHomeProtocol {
         router?.pushToSetting(on: view)
     }
     
+    func openSettings() {
+        router?.openSettings()
+    }
+        
     func numberOfItemsInSection() -> Int {
         return weatherHomeViewModel.count
     }
@@ -63,6 +65,8 @@ extension WeatherHomePresenter: InteractorToPresenterWeatherHomeProtocol {
     func fetchWeatherByLocationSuccess(data: WeatherHomeViewModel) {
         weatherHomeViewModel.append(data)
         view?.onFetchLocationSuccess()
+        
+        view?.hideActivity()
     }
     
     func fetchWeatherByLocationFailure(error: String) {
@@ -73,23 +77,17 @@ extension WeatherHomePresenter: InteractorToPresenterWeatherHomeProtocol {
         
         locationModel.removeAll()
         
+        locationModel = data
+        
         DispatchQueue.main.async { [self] in
-            locationModel = data
-            
-            print("fetchLocationSuccess : \(UserDefaults.getCurrentLocation())")
             
             for item in locationModel {
                 DispatchQueue.main.async {
                     self.interactor?.fetchWeatherByLocation(name: item.name ?? "", lat: item.latitude ?? 0.0, long: item.longitude ?? 0.0)
                 }
             }
-            
-            view?.onFetchLocationSuccess()
-            view?.hideActivity()
         }
     }
-    
-    
     
     func fetchLocationFailure(error: String) {
         DispatchQueue.main.async { [self] in

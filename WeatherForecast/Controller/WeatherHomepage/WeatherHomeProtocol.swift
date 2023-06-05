@@ -19,6 +19,7 @@ protocol ViewToPresenterWeatherHomeProtocol {
     
     func locationButtonAction()
     func settingsButtonAction()
+    func openSettings()
     
     func numberOfItemsInSection() -> Int
     func setCellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
@@ -56,4 +57,5 @@ protocol PresenterToRouterWeatherHomeProtocol {
     static func createModule() -> UINavigationController?
     func pushToSetting(on view: PresenterToViewWeatherHomeProtocol?)
     func pushToAddLocation(on view: PresenterToViewWeatherHomeProtocol?)
+    func openSettings()
 }

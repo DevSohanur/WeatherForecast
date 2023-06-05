@@ -193,9 +193,7 @@ class WeatherHomeInteractor: PresenterToInteractorWeatherHomeProtocol{
                 
             case .failure(let error):
                 print("Failed \(error)")
-                
                 let err = "\(error)"
-                
                 self.presenter?.fetchWeatherByLocationFailure(error: err)
             }
         }

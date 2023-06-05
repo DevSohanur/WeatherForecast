@@ -172,7 +172,7 @@ class WeatherHomeCollectionCell: UICollectionViewCell {
             currentTemparatureLocationLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 5),
             currentTemparatureLocationLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 50),
             currentTemparatureLocationLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -50),
-            currentTemparatureLocationLabel.heightAnchor.constraint(equalToConstant: 30),
+//            currentTemparatureLocationLabel.heightAnchor.constraint(equalToConstant: 30),
             
             // weatherIconImageView
             weatherIconImageView.topAnchor.constraint(equalTo: currentTemparatureLocationLabel.bottomAnchor, constant: 20),

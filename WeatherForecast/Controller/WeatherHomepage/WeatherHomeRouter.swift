@@ -38,4 +38,13 @@ class WeatherHomeRouter: PresenterToRouterWeatherHomeProtocol{
             viewController.navigationController?.pushViewController(AddLocationViewController(), animated: true)
         }
     }
+    
+    func openSettings() {
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(settingsURL) {
+            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }
+    }
 }
