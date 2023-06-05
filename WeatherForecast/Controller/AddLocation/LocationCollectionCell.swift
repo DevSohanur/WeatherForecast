@@ -48,18 +48,16 @@ class LocationCollectionCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             
             // locationNameLabel
-            locationNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            locationNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            locationNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            locationNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
             locationNameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            locationNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            
             
             // separatorView
-            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1)
-            
-            
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            separatorView.heightAnchor.constraint(equalToConstant: 0.5)            
         ])
     }
 }

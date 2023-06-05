@@ -45,6 +45,6 @@ class Utils{
             tempString = String(format: "%.1f", (data - 273.15) * 9/5 + 32 )
         }
         
-        return tempString
+        return tempString + "°"
     }
 }

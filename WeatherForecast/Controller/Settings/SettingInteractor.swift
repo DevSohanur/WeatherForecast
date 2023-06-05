@@ -16,11 +16,13 @@ class SettingInteractor: PresenterToInteractorSettingProtocol {
     var temparatureUnit: [String]?
     
     func fetchLocation() {
-        presenter?.fetchTemparatureUnitSuccess(data: ["Celsius (°C)" , "Fahrenheit (°F)"] )
+        var location : [String] = ["Current Location"]
+        location.append(contentsOf: UserDefaults.getLocationData().compactMap { $0.name})
+        presenter?.fetchLocationSuccess(data: location)
     }
     
     func fetchTemparatureUnit() {
-        presenter?.fetchLocationSuccess(data: UserDefaults.getLocationData().compactMap { $0.name} )
+        presenter?.fetchTemparatureUnitSuccess(data: ["Celsius (°C)" , "Fahrenheit (°F)"] )
     }
     
     func updateLocation(data: String) {

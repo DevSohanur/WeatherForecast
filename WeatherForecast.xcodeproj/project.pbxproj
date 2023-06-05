@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		736B1B6C2A2C90CC0041AEAD /* AddLocationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B1B6B2A2C90CC0041AEAD /* AddLocationProtocol.swift */; };
-		736B1B6E2A2C90E00041AEAD /* AddLocationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B1B6D2A2C90E00041AEAD /* AddLocationPresenter.swift */; };
-		736B1B702A2C90F30041AEAD /* AddLocationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B1B6F2A2C90F30041AEAD /* AddLocationRouter.swift */; };
-		736B1B722A2C90FE0041AEAD /* AddLocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 736B1B712A2C90FE0041AEAD /* AddLocationEntity.swift */; };
 		FB1B25352A26827A005A21E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1B25342A26827A005A21E9 /* AppDelegate.swift */; };
 		FB1B253E2A268284005A21E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB1B253D2A268284005A21E9 /* Assets.xcassets */; };
 		FB1B25412A268284005A21E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB1B253F2A268284005A21E9 /* LaunchScreen.storyboard */; };
@@ -44,13 +40,11 @@
 		FB9B4B482A2AECFB008C57F2 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B472A2AECFB008C57F2 /* NetworkService.swift */; };
 		FB9B4B4A2A2AEE4D008C57F2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B492A2AEE4D008C57F2 /* Reachability.swift */; };
 		FB9B4B6B2A2B121C008C57F2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9B4B6A2A2B121C008C57F2 /* LoadingView.swift */; };
+		FBB584BA2A2CF7F900EABF1B /* DynamicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB584B92A2CF7F900EABF1B /* DynamicValue.swift */; };
+		FBB584BC2A2CFDA600EABF1B /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB584BB2A2CFDA600EABF1B /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		736B1B6B2A2C90CC0041AEAD /* AddLocationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationProtocol.swift; sourceTree = "<group>"; };
-		736B1B6D2A2C90E00041AEAD /* AddLocationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationPresenter.swift; sourceTree = "<group>"; };
-		736B1B6F2A2C90F30041AEAD /* AddLocationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationRouter.swift; sourceTree = "<group>"; };
-		736B1B712A2C90FE0041AEAD /* AddLocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationEntity.swift; sourceTree = "<group>"; };
 		FB1B25312A26827A005A21E9 /* WeatherForecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherForecast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1B25342A26827A005A21E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB1B253D2A268284005A21E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +80,8 @@
 		FB9B4B472A2AECFB008C57F2 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		FB9B4B492A2AEE4D008C57F2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FB9B4B6A2A2B121C008C57F2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FBB584B92A2CF7F900EABF1B /* DynamicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicValue.swift; sourceTree = "<group>"; };
+		FBB584BB2A2CFDA600EABF1B /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,13 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				FB1B25342A26827A005A21E9 /* AppDelegate.swift */,
-				FB1E15AA2A2C23BA00177BB5 /* WeatherHomepage */,
-				FB9B4B3F2A2A9804008C57F2 /* AddLocation */,
+				FB919E252A2D7D0F00897FC1 /* Controller */,
 				FB9B4B462A2AECEB008C57F2 /* Networking */,
-				FB9B4B322A2A8FA0008C57F2 /* Settings */,
-				FB9B4B272A2A578A008C57F2 /* Utils */,
 				FB9B4B232A2A49BE008C57F2 /* Asset */,
-				FB9B4B222A2A4995008C57F2 /* Extension */,
 				FB9B4B242A2A49D5008C57F2 /* LaunchScreen  */,
 				FB1B25422A268284005A21E9 /* Info.plist */,
 			);
@@ -175,12 +167,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FB919E252A2D7D0F00897FC1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB9B4B3F2A2A9804008C57F2 /* AddLocation */,
+				FB1E15AA2A2C23BA00177BB5 /* WeatherHomepage */,
+				FB9B4B322A2A8FA0008C57F2 /* Settings */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		FB9B4B222A2A4995008C57F2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				FB9B4B252A2A4A86008C57F2 /* UIColor.swift */,
 				FB9B4B2A2A2A5AD8008C57F2 /* UIFont.swift */,
 				FB9B4B2E2A2A7AE2008C57F2 /* UserDefaults.swift */,
+				FBB584BB2A2CFDA600EABF1B /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -188,6 +191,8 @@
 		FB9B4B232A2A49BE008C57F2 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				FB9B4B222A2A4995008C57F2 /* Extension */,
+				FB9B4B272A2A578A008C57F2 /* Utils */,
 				FB1E15822A2BA90900177BB5 /* Font */,
 				FB1B253D2A268284005A21E9 /* Assets.xcassets */,
 			);
@@ -207,6 +212,7 @@
 			children = (
 				FB9B4B442A2AE75D008C57F2 /* Constant.swift */,
 				FB9B4B282A2A57A6008C57F2 /* Utils.swift */,
+				FBB584B92A2CF7F900EABF1B /* DynamicValue.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -228,12 +234,8 @@
 		FB9B4B3F2A2A9804008C57F2 /* AddLocation */ = {
 			isa = PBXGroup;
 			children = (
-				FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */,
 				FB9B4B422A2A9A07008C57F2 /* LocationCollectionCell.swift */,
-				736B1B6B2A2C90CC0041AEAD /* AddLocationProtocol.swift */,
-				736B1B6D2A2C90E00041AEAD /* AddLocationPresenter.swift */,
-				736B1B6F2A2C90F30041AEAD /* AddLocationRouter.swift */,
-				736B1B712A2C90FE0041AEAD /* AddLocationEntity.swift */,
+				FB9B4B402A2A9815008C57F2 /* AddLocationViewController.swift */,
 			);
 			path = AddLocation;
 			sourceTree = "<group>";
@@ -323,9 +325,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				736B1B6E2A2C90E00041AEAD /* AddLocationPresenter.swift in Sources */,
-				736B1B722A2C90FE0041AEAD /* AddLocationEntity.swift in Sources */,
-				736B1B6C2A2C90CC0041AEAD /* AddLocationProtocol.swift in Sources */,
 				FB1E15B82A2C23D200177BB5 /* WeatherHomeViewController.swift in Sources */,
 				FB9624422A2B34F7007AF75E /* SettingCollectionCell.swift in Sources */,
 				FB1E15BB2A2C23D200177BB5 /* WeatherHomeEntity.swift in Sources */,
@@ -337,11 +336,12 @@
 				FB9B4B452A2AE75D008C57F2 /* Constant.swift in Sources */,
 				FB1E15BA2A2C23D200177BB5 /* WeatherHomeRouter.swift in Sources */,
 				FB9B4B4A2A2AEE4D008C57F2 /* Reachability.swift in Sources */,
+				FBB584BC2A2CFDA600EABF1B /* UIViewController.swift in Sources */,
 				FB1E15B72A2C23D200177BB5 /* WeatherHomePresenter.swift in Sources */,
+				FBB584BA2A2CF7F900EABF1B /* DynamicValue.swift in Sources */,
 				FB1E15B52A2C23D200177BB5 /* WeatherHomeUpcomingTableCell.swift in Sources */,
 				FB9B4B362A2A8FE6008C57F2 /* SettingProtocol.swift in Sources */,
 				FB9B4B292A2A57A6008C57F2 /* Utils.swift in Sources */,
-				736B1B702A2C90F30041AEAD /* AddLocationRouter.swift in Sources */,
 				FB1E15B42A2C23D200177BB5 /* WeatherHomeCollectionCell.swift in Sources */,
 				FB1B25352A26827A005A21E9 /* AppDelegate.swift in Sources */,
 				FB9B4B2B2A2A5AD8008C57F2 /* UIFont.swift in Sources */,

@@ -8,12 +8,8 @@
 import Foundation
 import UIKit
 
-//typealias WeatherHomeEntryPoint = PresenterToRouterWeatherHomeProtocol & UIViewController
-
 
 class WeatherHomeRouter: PresenterToRouterWeatherHomeProtocol{
-    
-       
     
     static func createModule() -> UINavigationController? {
         
@@ -34,6 +30,12 @@ class WeatherHomeRouter: PresenterToRouterWeatherHomeProtocol{
         if let settingsVC = SettingRouter.createModule() {
             let viewController = view as! WeatherHomeViewController
             viewController.navigationController?.pushViewController(settingsVC, animated: true)
+        }
+    }
+    
+    func pushToAddLocation(on view: PresenterToViewWeatherHomeProtocol?) {
+        if let viewController = view as? WeatherHomeViewController {
+            viewController.navigationController?.pushViewController(AddLocationViewController(), animated: true)
         }
     }
 }

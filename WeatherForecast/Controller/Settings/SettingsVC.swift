@@ -61,6 +61,7 @@ class SettingsVC: UIViewController {
         
         defaultLocationCollectionView.dataSource = self
         defaultLocationCollectionView.delegate = self
+        defaultLocationCollectionView.isScrollEnabled = false
         defaultLocationCollectionView.layer.cornerRadius = 10
         defaultLocationCollectionView.register(SettingCollectionCell.self, forCellWithReuseIdentifier: SettingCollectionCell.identifire)
         
@@ -116,7 +117,7 @@ class SettingsVC: UIViewController {
             defaultLocationCollectionView.topAnchor.constraint(equalTo: defaultLocationLabel.bottomAnchor, constant: 10),
             defaultLocationCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             defaultLocationCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            defaultLocationCollectionView.heightAnchor.constraint(equalToConstant: 100),
+            defaultLocationCollectionView.bottomAnchor.constraint(equalTo: defaultLocationCollectionView.bottomAnchor, constant: 50),
             
         ])
     }

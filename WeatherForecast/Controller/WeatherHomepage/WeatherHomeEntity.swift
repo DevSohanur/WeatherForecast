@@ -33,11 +33,15 @@ struct UpcomingWeatherHomeViewModel: Codable {
 
 // API Data Response Model
 struct WeatherHomeModel: Codable {
-    var cod: String?
+    var cod: DynamicValue?
     var message: Double?
     var cnt: Double?
     var list: [WeatherHomeListModel]?
     var city: WeatherHomeCityModel?
+    
+    //
+    var weather: [WeatherModel]?
+    var main: MainClassModel?
 }
 
 struct WeatherHomeCityModel: Codable {

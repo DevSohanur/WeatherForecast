@@ -39,8 +39,7 @@ protocol PresenterToInteractorWeatherHomeProtocol {
     var presenter: InteractorToPresenterWeatherHomeProtocol? {get set}
     func fetchLocation()
     
-    func fetchWeatherByLocation(lat: Double, long: Double)
-    func fetchCurrentWeather(lat: Double, long: Double) -> WeatherHomeModel
+    func fetchWeatherByLocation(name: String, lat: Double, long: Double)
 }
 
 // MARK: - Interactor To Presenter
@@ -48,15 +47,13 @@ protocol InteractorToPresenterWeatherHomeProtocol {
     func fetchLocationSuccess(data: [LocationModel])
     func fetchLocationFailure(error: String)
     
-    func fetchWeatherByLocationSuccess(data: WeatherHomeModel )
+    func fetchWeatherByLocationSuccess(data: WeatherHomeViewModel)
     func fetchWeatherByLocationFailure(error: String)
-    
-    func fetchCurrentWeatherSuccess(data: WeatherHomeModel )
-    func fetchCurrentWeatherFailure(error: String)
 }
 
 // MARK: - Presenter To Router
 protocol PresenterToRouterWeatherHomeProtocol {
     static func createModule() -> UINavigationController?
     func pushToSetting(on view: PresenterToViewWeatherHomeProtocol?)
+    func pushToAddLocation(on view: PresenterToViewWeatherHomeProtocol?)
 }

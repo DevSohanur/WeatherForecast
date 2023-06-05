@@ -40,7 +40,6 @@ class WeatherHomeViewController: UIViewController {
         checkLocationAuthorization()
         
         initView()
-        presenter?.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,21 +47,12 @@ class WeatherHomeViewController: UIViewController {
     }
     
     @objc func locationButtonAction() {
-        let alert = UIAlertController(title: "", message: "Select your desired menu from below ", preferredStyle: .actionSheet)
-            
-        alert.addAction(UIAlertAction(title: "Update Location", style: .default) { (action) in
-            
-        })
-        
-        alert.addAction(UIAlertAction(title: "Add Location", style: .default) { (action) in
-            self.navigationController?.pushViewController(AddLocationViewController(), animated: true)
-        })
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .destructive) { (action) in
-            
-        })
-                
-        present(alert, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(AddLocationViewController(), animated: true)
+        presenter?.locationButtonAction()
+    }
+    
+    @objc func refreshButtonAction() {
+        presenter?.viewDidLoad()
     }
     
     @objc func settingsButtonAction() {
@@ -71,6 +61,19 @@ class WeatherHomeViewController: UIViewController {
     
     func initView() {
         
+        errorLabel.text = ""
+        errorLabel.isHidden = true
+        errorLabel.textAlignment = .center
+        errorLabel.textColor = .white
+        errorLabel.font = UIFont.poppinsRegularFont(ofSize: 14)
+        
+        refreshButton.isHidden = true
+        refreshButton.setTitle("Refresh", for: .normal)
+        refreshButton.titleLabel?.font = UIFont.robotoSemiBoldFont(ofSize: 14)
+        refreshButton.setTitleColor(UIColor.white, for: .normal)
+        refreshButton.backgroundColor = .black
+        refreshButton.addTarget(self, action: #selector(refreshButtonAction), for: .touchUpInside)
+
         chooseLocationButton.setImage(UIImage(named: "icon_map"), for: .normal)
         chooseLocationButton.addTarget(self, action: #selector(locationButtonAction), for: .touchUpInside)
 
@@ -80,9 +83,16 @@ class WeatherHomeViewController: UIViewController {
         weatherCollectionView.dataSource = self
         weatherCollectionView.delegate = self
         weatherCollectionView.isPagingEnabled = true
-        weatherCollectionView.contentInset = .zero
-        weatherCollectionView.backgroundColor = UIColor.sunnyBackground
+        weatherCollectionView.contentInsetAdjustmentBehavior = .never
         weatherCollectionView.register(WeatherHomeCollectionCell.self, forCellWithReuseIdentifier: WeatherHomeCollectionCell.identifire)
+        
+        
+        view.addSubview(errorLabel)
+        errorLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(refreshButton)
+        refreshButton.translatesAutoresizingMaskIntoConstraints = false
+        
         
         view.addSubview(weatherCollectionView)
         weatherCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -95,7 +105,16 @@ class WeatherHomeViewController: UIViewController {
         
         // Set static constraints
         NSLayoutConstraint.activate([
-            // set dimmedView edges to superview
+            
+            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -20),
+            errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 20),
+            errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
+            refreshButton.topAnchor.constraint(equalTo: errorLabel.bottomAnchor,constant:  10),
+            refreshButton.widthAnchor.constraint(equalToConstant: 100),
+            refreshButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            // set weatherCollectionView edges to superview
             weatherCollectionView.topAnchor.constraint(equalTo: view.topAnchor),
             weatherCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             weatherCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -118,6 +137,11 @@ extension WeatherHomeViewController: PresenterToViewWeatherHomeProtocol {
     
     func onFetchLocationSuccess() {
         DispatchQueue.main.async {
+            self.weatherCollectionView.isHidden = false
+            self.errorLabel.text = ""
+            self.errorLabel.isHidden = true
+            self.refreshButton.isHidden = true
+            
             self.weatherCollectionView.reloadData()
             self.hideActivity()
         }
@@ -126,7 +150,12 @@ extension WeatherHomeViewController: PresenterToViewWeatherHomeProtocol {
     func onFetchLocationFailed(error: String) {
         print(#function)
         DispatchQueue.main.async {
-            self.weatherCollectionView.reloadData()
+            
+            self.errorLabel.text = error
+            self.errorLabel.isHidden = false
+            self.refreshButton.isHidden = false
+            
+            self.weatherCollectionView.isHidden = true
             self.hideActivity()
         }
     }

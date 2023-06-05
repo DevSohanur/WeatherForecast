@@ -38,12 +38,12 @@ class WeatherHomeUpcomingCollectionCell: UICollectionViewCell {
         weatherIconImageView.image = UIImage(named: "icon_default")
         weatherIconImageView.contentMode = .scaleAspectFit
         
-        weatherDateNameLabel.text = "Today"
+        weatherDateNameLabel.text = "..."
         weatherDateNameLabel.textColor = .white
         weatherDateNameLabel.textAlignment = .left
         weatherDateNameLabel.font = UIFont.robotoSemiBoldFont(ofSize: 16)
         
-        weatherTemparatureRangeLabel.text = "999°/999°"
+        weatherTemparatureRangeLabel.text = "0°/0°"
         weatherTemparatureRangeLabel.textColor = .white
         weatherTemparatureRangeLabel.textAlignment = .right
         weatherTemparatureRangeLabel.font = UIFont.robotoSemiBoldFont(ofSize: 16)
